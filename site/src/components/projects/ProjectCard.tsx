@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
+import { getUrl } from '../../utils/url';
 
 interface ProjectCardProps {
   number: number;
@@ -24,7 +25,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.a
-      href={href || `/projects/project-${number}`}
+      href={href || getUrl(`projects/project-${number}`)}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

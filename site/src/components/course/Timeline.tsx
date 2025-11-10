@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import ScrollReveal from '../ui/ScrollReveal';
+import { getUrl } from '../../utils/url';
 
 interface TimelineItem {
   weekNumber: number;
@@ -41,7 +42,7 @@ export default function Timeline({ items }: TimelineProps) {
             {/* Content */}
             <div className="flex-1 group">
               <a
-                href={item.href || `/curriculum/week-${item.weekNumber}`}
+                href={item.href || getUrl(`curriculum/week-${item.weekNumber}`)}
                 className="block p-6 rounded-xl bg-bg-secondary hover:bg-white hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-2">

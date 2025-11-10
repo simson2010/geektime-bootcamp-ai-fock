@@ -4,6 +4,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 import AnimatedDiagram from '../diagrams/AnimatedDiagram';
 import ExpandableSection from '../ui/ExpandableSection';
 import type { ProjectData } from '../../data/projects';
+import { getUrl, getImageUrl } from '../../utils/url';
 
 interface ProjectDetailProps {
   project: ProjectData;
@@ -53,7 +54,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           <div className="flex items-center gap-2">
             <span className="text-text-secondary">所属周次:</span>
             <a
-              href={`/curriculum/week-${project.weekNumber}`}
+              href={getUrl(`curriculum/week-${project.weekNumber}`)}
               className="text-accent hover:underline"
             >
               第 {project.weekNumber} 周
@@ -192,7 +193,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <div className="space-y-3">
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <img
-                    src="/projects/project-1/screenshot-create.png"
+                    src={getImageUrl('projects/project-1/screenshot-create.png')}
                     alt="创建 Ticket"
                     className="w-full rounded-lg shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow"
                   />
@@ -202,7 +203,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <div className="space-y-3">
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <img
-                    src="/projects/project-1/screenshot-tags.png"
+                    src={getImageUrl('projects/project-1/screenshot-tags.png')}
                     alt="标签管理"
                     className="w-full rounded-lg shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow"
                   />
@@ -212,7 +213,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <div className="space-y-3">
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <img
-                    src="/projects/project-1/screenshot-filter.png"
+                    src={getImageUrl('projects/project-1/screenshot-filter.png')}
                     alt="标签过滤"
                     className="w-full rounded-lg shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow"
                   />
@@ -222,7 +223,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <div className="space-y-3">
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <img
-                    src="/projects/project-1/screenshot-edit.png"
+                    src={getImageUrl('projects/project-1/screenshot-edit.png')}
                     alt="编辑 Ticket"
                     className="w-full rounded-lg shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow"
                   />
@@ -234,7 +235,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               <div className="space-y-3">
                 <div className="bg-gray-50 p-4 rounded-xl inline-block mx-auto">
                   <img
-                    src="/projects/project-1/screenshot-mobile.png"
+                    src={getImageUrl('projects/project-1/screenshot-mobile.png')}
                     alt="移动端响应式"
                     className="max-w-md mx-auto rounded-lg shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-shadow"
                   />
@@ -270,12 +271,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href={`/curriculum/week-${project.weekNumber}`}
+              href={getUrl(`curriculum/week-${project.weekNumber}`)}
               className="btn-secondary"
             >
               前往第 {project.weekNumber} 周
             </a>
-            <a href="/projects" className="px-6 py-3 bg-white text-accent rounded-full font-medium hover:bg-opacity-90 transition-all">
+            <a href={getUrl('projects')} className="px-6 py-3 bg-white text-accent rounded-full font-medium hover:bg-opacity-90 transition-all">
               查看所有项目
             </a>
           </div>

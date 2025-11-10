@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader';
 import ProjectCard from '../../components/projects/ProjectCard';
 import ScrollReveal from '../../components/ui/ScrollReveal';
 import { projects } from '../../data/projects';
+import { getUrl } from '../../utils/url';
 ---
 
 <PageLayout
@@ -17,7 +18,7 @@ import { projects } from '../../data/projects';
   >
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="#projects" class="btn-primary"> 查看项目 </a>
-      <a href="/curriculum" class="btn-secondary"> 返回课程 </a>
+      <a href={getUrl('curriculum')} class="btn-secondary"> 返回课程 </a>
     </div>
   </PageHeader>
 
@@ -45,7 +46,7 @@ import { projects } from '../../data/projects';
                     difficulty={project.difficulty}
                     estimatedHours={project.estimatedHours}
                     techStack={project.techStack}
-                    href={`/projects/project-${project.number}`}
+                    href={getUrl(`projects/project-${project.number}`)}
                     previewImage={project.previewImage}
                     client:load
                   />
@@ -104,7 +105,7 @@ import { projects } from '../../data/projects';
       <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
         从第一个项目开始，体验 AI 辅助编程的强大力量
       </p>
-      <a href="/projects/project-1" class="btn-primary"> 开始第一个项目 </a>
+      <a href={getUrl('projects/project-1')} class="btn-primary"> 开始第一个项目 </a>
     </div>
   </section>
 </PageLayout>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navItems } from '../../data/navigation';
+import { getUrl } from '../../utils/url';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 md:h-[60px]">
             {/* Logo */}
             <a
-              href="/"
+              href={getUrl('')}
               className="text-xl md:text-2xl font-semibold text-primary hover:opacity-80 transition-opacity"
             >
               陈天 AI 训练营

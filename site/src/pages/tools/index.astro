@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader';
 import ToolShowcase from '../../components/tools/ToolShowcase';
 import ScrollReveal from '../../components/ui/ScrollReveal';
 import { tools } from '../../data/tools';
+import { getUrl, getImageUrl } from '../../utils/url';
 
 const editors = tools.filter((t) => t.category === 'editor');
 const models = tools.filter((t) => t.category === 'model');
@@ -18,7 +19,7 @@ const knowledge = tools.filter((t) => t.category === 'knowledge');
   <PageHeader title="工具生态" subtitle="构建你的 AI 辅助开发工具链" client:load>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="#editors" class="btn-primary"> 探索工具 </a>
-      <a href="/curriculum" class="btn-secondary"> 查看课程 </a>
+      <a href={getUrl('curriculum')} class="btn-secondary"> 查看课程 </a>
     </div>
   </PageHeader>
 
@@ -42,9 +43,9 @@ const knowledge = tools.filter((t) => t.category === 'knowledge');
               tagline={tool.tagline}
               description={tool.description}
               features={tool.features}
-              href={`/tools/${tool.id}`}
+              href={getUrl(`tools/${tool.id}`)}
               reverse={index % 2 === 1}
-              imageUrl={`/images/tools/${tool.id}.jpg`}
+              imageUrl={getImageUrl(`images/tools/${tool.id}.jpg`)}
               client:load
             />
           ))
@@ -73,9 +74,9 @@ const knowledge = tools.filter((t) => t.category === 'knowledge');
               tagline={tool.tagline}
               description={tool.description}
               features={tool.features}
-              href={`/tools/${tool.id}`}
+              href={getUrl(`tools/${tool.id}`)}
               reverse={index % 2 === 0}
-              imageUrl={`/images/tools/${tool.id}.jpg`}
+              imageUrl={getImageUrl(`images/tools/${tool.id}.jpg`)}
               client:load
             />
           ))
@@ -104,9 +105,9 @@ const knowledge = tools.filter((t) => t.category === 'knowledge');
               tagline={tool.tagline}
               description={tool.description}
               features={tool.features}
-              href={`/tools/${tool.id}`}
+              href={getUrl(`tools/${tool.id}`)}
               reverse={index % 2 === 1}
-              imageUrl={`/images/tools/${tool.id}.jpg`}
+              imageUrl={getImageUrl(`images/tools/${tool.id}.jpg`)}
               client:load
             />
           ))
@@ -136,9 +137,9 @@ const knowledge = tools.filter((t) => t.category === 'knowledge');
                 tagline={tool.tagline}
                 description={tool.description}
                 features={tool.features}
-                href={`/tools/${tool.id}`}
+                href={getUrl(`tools/${tool.id}`)}
                 reverse={index % 2 === 0}
-                imageUrl={`/images/tools/${tool.id}.jpg`}
+                imageUrl={getImageUrl(`images/tools/${tool.id}.jpg`)}
                 client:load
               />
             ))}

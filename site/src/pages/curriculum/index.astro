@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader';
 import Timeline from '../../components/course/Timeline';
 import AnimatedDiagram from '../../components/diagrams/AnimatedDiagram';
 import { getTimelineData } from '../../data/curriculum';
+import { getUrl } from '../../utils/url';
 
 const timelineData = getTimelineData();
 
@@ -38,7 +39,7 @@ const learningPathDiagram = `graph TB
   >
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="#timeline" class="btn-primary"> 查看课程大纲 </a>
-      <a href="/projects" class="btn-secondary"> 实战项目 </a>
+      <a href={getUrl('projects')} class="btn-secondary"> 实战项目 </a>
     </div>
   </PageHeader>
 
@@ -71,7 +72,7 @@ const learningPathDiagram = `graph TB
       <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
         点击任意周次，查看详细的学习内容和实践项目
       </p>
-      <a href="/curriculum/week-1" class="btn-primary"> 开始第一周课程 </a>
+      <a href={getUrl('curriculum/week-1')} class="btn-primary"> 开始第一周课程 </a>
     </div>
   </section>
 </PageLayout>

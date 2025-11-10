@@ -23,7 +23,7 @@ class Ticket(Base):
     title = Column(String(255), nullable=False, index=True)
     description = Column(Text)
     status = Column(
-        Enum(TicketStatus, native_enum=False, length=50),
+        Enum(TicketStatus, name="ticketstatus", native_enum=True),
         default=TicketStatus.PENDING,
         nullable=False,
         index=True,

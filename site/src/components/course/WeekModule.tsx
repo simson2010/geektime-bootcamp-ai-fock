@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ExpandableSection from '../ui/ExpandableSection';
 import AnimatedDiagram from '../diagrams/AnimatedDiagram';
+import { getUrl } from '../../utils/url';
 
 interface WeekModuleProps {
   weekNumber: number;
@@ -127,7 +128,7 @@ export default function WeekModule({
             {relatedTools.map((tool) => (
               <a
                 key={tool}
-                href={`/tools/${tool}`}
+                href={getUrl(`tools/${tool}`)}
                 className="px-4 py-2 bg-bg-secondary hover:bg-accent hover:text-white rounded-full text-sm font-medium transition-colors"
               >
                 {tool}

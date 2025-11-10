@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import ToolDetail from '../../components/tools/ToolDetail';
 import { getToolById } from '../../data/tools';
+import { getUrl } from '../../utils/url';
 
 const tool = getToolById('claude');
 if (!tool) {
@@ -13,9 +14,9 @@ if (!tool) {
   <div class="pt-24 pb-16 bg-bg-secondary min-h-screen">
     <div class="container-custom">
       <ToolDetail tool={tool} client:load />
-      
+
       <div class="mt-12 text-center">
-        <a href="/tools" class="text-accent hover:underline">
+        <a href={getUrl('tools')} class="text-accent hover:underline">
           ← 返回工具生态
         </a>
       </div>

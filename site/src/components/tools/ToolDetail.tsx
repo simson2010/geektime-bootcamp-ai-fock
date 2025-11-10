@@ -3,6 +3,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 import AnimatedDiagram from '../diagrams/AnimatedDiagram';
 import ExpandableSection from '../ui/ExpandableSection';
 import type { ToolData } from '../../data/tools';
+import { getUrl } from '../../utils/url';
 
 interface ToolDetailProps {
   tool: ToolData;
@@ -93,7 +94,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
                 </div>
                 <div className="flex-1">
                   <a
-                    href={`/curriculum/week-${usage.weekNumber}`}
+                    href={getUrl(`curriculum/week-${usage.weekNumber}`)}
                     className="text-lg font-semibold text-primary hover:text-accent transition-colors"
                   >
                     第 {usage.weekNumber} 周
@@ -101,7 +102,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
                   <p className="text-text-secondary">{usage.role}</p>
                 </div>
                 <a
-                  href={`/curriculum/week-${usage.weekNumber}`}
+                  href={getUrl(`curriculum/week-${usage.weekNumber}`)}
                   className="text-accent hover:underline"
                 >
                   查看详情 →
@@ -121,7 +122,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
               {tool.id === 'claude-code' && (
                 <>
                   <a
-                    href="/materials/claude-code-architecture"
+                    href={getUrl('materials/claude-code-architecture')}
                     className="p-4 bg-bg-secondary hover:bg-accent hover:text-white rounded-xl transition-all group"
                   >
                     <div className="text-2xl mb-2">🏗️</div>
@@ -129,7 +130,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
                     <div className="text-sm opacity-80">16个System Prompts完整解析</div>
                   </a>
                   <a
-                    href="/materials/claude-code-setup"
+                    href={getUrl('materials/claude-code-setup')}
                     className="p-4 bg-bg-secondary hover:bg-accent hover:text-white rounded-xl transition-all group"
                   >
                     <div className="text-2xl mb-2">⚙️</div>
@@ -140,7 +141,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
               )}
               {tool.id === 'notebooklm' && (
                 <a
-                  href="/materials/notebooklm-guide"
+                  href={getUrl('materials/notebooklm-guide')}
                   className="p-4 bg-bg-secondary hover:bg-accent hover:text-white rounded-xl transition-all group"
                 >
                   <div className="text-2xl mb-2">📚</div>
@@ -150,7 +151,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
               )}
               {(tool.id === 'cursor' || tool.id === 'claude-code') && (
                 <a
-                  href="/materials/ai-coding-tools-comparison"
+                  href={getUrl('materials/ai-coding-tools-comparison')}
                   className="p-4 bg-bg-secondary hover:bg-accent hover:text-white rounded-xl transition-all group"
                 >
                   <div className="text-2xl mb-2">🔧</div>
@@ -171,7 +172,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
             在课程中深入学习 {tool.name}，掌握最前沿的 AI 辅助编程技能
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="/curriculum" className="btn-secondary">
+            <a href={getUrl('curriculum')} className="btn-secondary">
               查看课程大纲
             </a>
             <a

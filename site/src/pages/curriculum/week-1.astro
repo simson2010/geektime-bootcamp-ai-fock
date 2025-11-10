@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import WeekModule from '../../components/course/WeekModule';
 import { getWeekData } from '../../data/curriculum';
+import { getUrl } from '../../utils/url';
 
 const weekData = getWeekData(1);
 if (!weekData) {
@@ -18,10 +19,10 @@ if (!weekData) {
       <WeekModule {...weekData} client:load />
 
       <div class="flex justify-between items-center mt-12">
-        <a href="/curriculum" class="text-accent hover:underline">
+        <a href={getUrl('curriculum')} class="text-accent hover:underline">
           ← 返回课程大纲
         </a>
-        <a href="/curriculum/week-2" class="btn-primary">
+        <a href={getUrl('curriculum/week-2')} class="btn-primary">
           下一周 →
         </a>
       </div>

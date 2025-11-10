@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import ProjectDetail from '../../components/projects/ProjectDetail';
 import { getProjectById } from '../../data/projects';
+import { getUrl } from '../../utils/url';
 
 const project = getProjectById('project-3');
 if (!project) {
@@ -13,9 +14,9 @@ if (!project) {
   <div class="pt-24 pb-16 bg-bg-secondary min-h-screen">
     <div class="container-custom">
       <ProjectDetail project={project} client:load />
-      
+
       <div class="mt-12 text-center">
-        <a href="/projects" class="text-accent hover:underline">
+        <a href={getUrl('projects')} class="text-accent hover:underline">
           ← 返回所有项目
         </a>
       </div>

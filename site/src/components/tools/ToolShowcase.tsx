@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
+import { getUrl } from '../../utils/url';
 
 interface Feature {
   icon: string;
@@ -100,7 +101,7 @@ export default function ToolShowcase({
 
           {/* CTA */}
           <a
-            href={href || `/tools/${id}`}
+            href={href || getUrl(`tools/${id}`)}
             className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all group"
           >
             <span>深入了解</span>
