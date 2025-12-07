@@ -236,3 +236,7 @@ based on @w3/extracted/system-prompts.json and @w3/extracted/tool-definitions.js
 ## 添加 slides
 
 仔细阅读 ./site 的代码，为 ./site 添加一个新的菜单：演示文稿，这个页面里面是一个演示文稿的列表。每个演示文档打开后都是一个 carousel，里面有一系列的图片，可以全屏播放。请为这个需求构建一个 react component，然后演示文档（mdx）里面调用这个 component
+
+## 添加 vogels talk slides
+
+使用 ./site/public/slides/vogels-talk 目录下的图片，生成一个 slides，放在 ./site/src/pages/presentations/vogels-talk.mdx 文件中。记得更新 index.astro.
