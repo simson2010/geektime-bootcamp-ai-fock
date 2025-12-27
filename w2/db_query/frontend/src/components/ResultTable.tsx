@@ -15,7 +15,7 @@ export const ResultTable: React.FC<ResultTableProps> = ({
 }) => {
   const [pagination, setPagination] = useState({
     current: 1,
-    pageSize: 50,
+    pageSize: 10,
   });
 
   if (!result) {

@@ -58,6 +58,18 @@ export const Home: React.FC = () => {
     }
   }, [selectedDatabase]);
 
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 10,
+  });
+
+  const handleTableChange = (newPagination: any) => {
+    setPagination({
+      current: newPagination.current,
+      pageSize: newPagination.pageSize,
+    });
+  };
+
   const loadMetadata = async () => {
     if (!selectedDatabase) return;
 
@@ -647,12 +659,14 @@ export const Home: React.FC = () => {
               dataSource={queryResult.rows}
               rowKey={(_record, index) => index?.toString() || "0"}
               pagination={{
-                pageSize: 50,
+                current: pagination.current,
+                pageSize: pagination.pageSize,
                 showSizeChanger: true,
                 showTotal: (total) => `Total ${total} rows`,
                 pageSizeOptions: [10, 20, 50, 100],
               }}
               scroll={{ x: "max-content", y: "calc(100vh - 520px)" }}
+              onChange={handleTableChange}
               size="middle"
               bordered
             />

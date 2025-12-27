@@ -3,10 +3,10 @@
 ### Base URL: http://localhost:8000/api/v1
 
 @baseUrl = http://localhost:8000/api/v1
-@dbName = todo
+@dbName = postgres
 
 ### Variables
-@testDbUrl = postgresql://postgres:postgres@localhost:5432/{{dbName}}
+@testDbUrl = postgresql://demo_user:123456@192.168.3.54:5432/{{dbName}}
 
 ###
 ### Health Check
@@ -56,7 +56,7 @@ POST {{baseUrl}}/dbs/{{dbName}}/query HTTP/1.1
 Content-Type: application/json
 
 {
-  "sql": "SELECT id, name, email FROM users WHERE status = 'active'"
+  "sql": "SELECT id, full_name, email FROM users WHERE status = '1'"
 }
 
 ###
@@ -66,7 +66,7 @@ POST {{baseUrl}}/dbs/{{dbName}}/query HTTP/1.1
 Content-Type: application/json
 
 {
-  "sql": "SELECT u.name, COUNT(o.id) as order_count FROM users u LEFT JOIN orders o ON u.id = o.user_id GROUP BY u.name ORDER BY order_count DESC LIMIT 10"
+  "sql": "SELECT u.full_name, COUNT(o.id) as order_count FROM users u LEFT JOIN orders o ON u.id = o.user_id GROUP BY u.name ORDER BY order_count DESC LIMIT 10"
 }
 
 ###
@@ -86,7 +86,7 @@ POST {{baseUrl}}/dbs/{{dbName}}/query HTTP/1.1
 Content-Type: application/json
 
 {
-  "sql": "INSERT INTO users (name, email) VALUES ('test', 'test@example.com')"
+  "sql": "INSERT INTO users (username, pwd_plain, full_name, gender, birth_date, email, phone, status) VALUES ('test_insert12','123456','测试插入2','F','1988-01-01','test2@example.com','13103213000',1);"
 }
 
 ###
